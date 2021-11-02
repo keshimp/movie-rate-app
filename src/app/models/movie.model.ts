@@ -8,11 +8,18 @@ export interface ApiMovie extends ApiUpdateMovie {
      */
 }
 
+/**
+ * Update model - used to update a movie. Extends create movie entirely because
+ * the user can update all of the properties they can use to create (currently)
+ */
 // tslint:disable-next-line: no-empty-interface
 export interface ApiUpdateMovie extends ApiCreateMovie {
 
 }
 
+/**
+ * Create model for movies
+ */
 export interface ApiCreateMovie {
     title: string;
     /**
