@@ -1,0 +1,58 @@
+<div class="row">
+    <!-- Filter form -->
+    <div class="col-lg-8 col-12">
+        <form [formGroup]="FilterForm" (ngSubmit)="ApplyFilters()">
+            <app-card-component [Title]="'Filters'">
+                <div class="form-group">
+                    <label>
+                        Search By Title:
+                    </label>
+                    <input type="text" class="form-control" formControlName="search">
+                    <small class="text-danger"
+                        *ngIf="FilterForm.get('search')?.errors?.maxLength">
+                        Your search is too long - please shorten it and try again.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating:</label>
+                    <select formControlName="rating" class="form-control">
+                        <option disabled>Select Rating To Filter By</option>
+                        <option *ngFor="let rating of AllowedRatingIntegers">{{rating}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="reset" (click)="ResetForm(); ApplyFilters()" class="btn btn-secondary">Reset</button>
+                    <button type="button" (click)="FilterOutBelowAverageMovies()" class="ml-2 btn btn-primary">Filter Out Below Average Movies</button>
+                    <button type="submit" class="btn btn-success float-right" [disabled]="!FilterForm.valid">Search</button>
+                </div>
+            </app-card-component>
+        </form>
+    </div>
+
+    <!-- Create form -->
+    <div class="col-lg-4 col-12">
+      <app-movie-edit-create></app-movie-edit-create>
+    </div>
+
+    <!-- Movies list -->
+    <div class="col-12" @fadeInOutAnimation *ngFor="let movie of FilteredMovies">
+        <app-card-component (Delete)="DeleteMovie(movie.id)" [HandleDelete]="true" [Title]="movie.title">
+            <div class="row">
+                <div class="col-2 border-right">
+                    <h1 class="text-center">
+                        {{movie.rating}}
+                    </h1>
+                </div>
+                <div class="col-8">
+                    <p>
+                        {{movie.description}}
+                    </p>
+                </div>
+            </div>
+        </app-card-component>
+        <br>
+    </div>
+
+</div>

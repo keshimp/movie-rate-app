@@ -1,0 +1,13 @@
+<div class="card fader margin-top">
+    <div class="card-header">{{Title}}</div>
+    <div class="card-body">
+        <!-- Shows whatever content is passed into the component here-->
+      <ng-content></ng-content>
+    </div>
+    <div class="card-footer" *ngIf="HandleEdit || HandleDelete">
+      <div class="col-12 margin-bottom">
+        <button type="button" *ngIf="HandleEdit" (click)="Edit.emit()" class="btn btn-primary float-left">Edit</button>
+        <button type="button" *ngIf="HandleDelete" (click)="Delete.emit()" class="btn btn-danger float-right">Delete</button>
+      </div>
+    </div>
+ </div>

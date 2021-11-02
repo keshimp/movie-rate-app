@@ -1,0 +1,58 @@
+{
+  "movies": [
+    {
+      "rating": "9",
+      "title": "Wedding Crashers",
+      "description": "Wedding Crashers",
+      "id": 2
+    },
+    {
+      "rating": "3",
+      "title": "A movie",
+      "description": "The movie",
+      "id": 3
+    },
+    {
+      "rating": "4",
+      "title": "The movie two",
+      "description": "Another the movie",
+      "id": 4
+    },
+    {
+      "rating": "5",
+      "title": "A decent movie",
+      "description": "Very decent",
+      "id": 5
+    },
+    {
+      "rating": 1,
+      "title": "234234",
+      "description": "23423",
+      "id": 6
+    },
+    {
+      "rating": "5",
+      "title": "23423432",
+      "description": "1141",
+      "id": 7
+    },
+    {
+      "rating": "8",
+      "title": "New movie again",
+      "description": "A new movie",
+      "id": 8
+    },
+    {
+      "rating": 5,
+      "title": "21541",
+      "description": "23523",
+      "id": 9
+    },
+    {
+      "rating": 7,
+      "title": "32523532",
+      "description": "1151",
+      "id": 10
+    }
+  ]
+}

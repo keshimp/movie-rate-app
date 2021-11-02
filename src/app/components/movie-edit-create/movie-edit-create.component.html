@@ -1,0 +1,47 @@
+<app-card-component [Title]="'Create Movie'">
+    <form [formGroup]="MovieForm" (ngSubmit)="Submit()">
+        <div class="form-group">
+            <label>
+                Title:
+            </label>
+            <input type="text" class="form-control" formControlName="title">
+            <small class="text-danger"
+                *ngIf="MovieForm.controls.title?.errors?.maxLength">
+                Your search is too long - please shorten it and try again.
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label>
+                Description:
+            </label>
+            <input type="text" class="form-control" formControlName="description">
+            <small class="text-danger"
+                *ngIf="MovieForm.controls.description?.errors?.maxLength">
+                Your description is too long - please shorten it and try again.
+        </small>
+        </div>
+        
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <select formControlName="rating" class="form-control">
+                <option disabled>Select Rating To Assign To This Movie</option>
+                <option *ngFor="let rating of AllowedRatingIntegers">{{rating}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="reset" class="btn btn-secondary">Reset</button>
+            <button type="submit" class="btn btn-success float-right" [disabled]="!MovieForm.valid">Create</button>
+        </div>
+
+        <div class="form-group" *ngIf="Success.length || Error.length">
+            <p class="text-center text-danger" *ngIf="Error.length">
+                {{ Error }}
+            </p>
+            <p class="text-center text-success" *ngIf="Success.length">
+                {{ Success }}
+            </p>
+        </div>
+    </form>
+</app-card-component>
